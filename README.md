@@ -29,11 +29,15 @@ A **modern, fully responsive hotel website** built by a **4-member development t
 Clone the repo, set up a virtual environment, install dependencies, and run the app:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/nextleaptech/Kerawi-Hotel
 cd Hotel-Site
 python -m venv .venv
 pip install -r requirements.txt
+```
+
+```bash
 python main.py
+```
 
 ---
 
@@ -41,17 +45,17 @@ python main.py
 
 **The creators behind the project:**
 
-* 🌟 **Member 1 – Backend Guru** – Handles booking & email logic, server-side validation, Apis and architecture
-  [GitHub](https://github.com/member1)
+* 🌟 **Sofoniyas Alebachew – Backend Guru** – Handles booking & email logic, server-side validation, Apis and architecture
+  [GitHub](https://github.com/sofi39)
 
-* 🎨 **Member 2 – Frontend Wizard** – Designs layouts, animations, interactive elements, and responsive UI
+* 🎨 **Lidia – Frontend Wizard** – Designs layouts, animations, interactive elements, and responsive UI
   [GitHub](https://github.com/member2)
 
-* ⚡ **Member 3 – Fullstack Developer** – Connects frontend with backend, ensures smooth data flow
+* ⚡ **Agernesh – Fullstack Developer** – Connects frontend with backend, ensures smooth data flow
   [GitHub](https://github.com/member3)
 
-* 🖌️ **Member 4 – UX & Design Expert** – Shapes user experience, color schemes, and overall visual aesthetics
-  [GitHub](https://github.com/member4)
+* 🖌️ **Ermias Sharew – UX & Design Expert** – Shapes user experience, color schemes, and overall visual aesthetics
+  [GitHub](https://github.com/ermizethi)
 
 ---
 
@@ -63,6 +67,6 @@ python main.py
 - **Team Portfolio:** [Portfolio🌐](https://your-team-portfolio.com)
 - **Team GitHub Repository:** [<img align="left" alt="GitHub" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />][github]
 - **Team LinkedIn:** [<img align="left" alt="LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[github]: https://github.com/our_team
+[github]: https://github.com/nextleaptech
 [linkedin]: https://linkedin.com/in/ourteam
 Feel free to reach out for collaboration, feedback, or any questions!
