@@ -46,7 +46,7 @@ python main.py
 **The creators behind the project:**
 
 * 🌟 **Sofoniyas Alebachew – Backend Guru** – Handles booking & email logic, server-side validation, Apis and architecture
-  [GitHub](https://github.com/sofi39)
+  [GitHub](https://github.com/sofi391)
 
 * 🎨 **Lidia – Frontend Wizard** – Designs layouts, animations, interactive elements, and responsive UI
   [GitHub](https://github.com/member2)
