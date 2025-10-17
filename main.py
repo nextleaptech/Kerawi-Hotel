@@ -4,15 +4,20 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField,TextAreaField,SelectField
 from wtforms.validators import DataRequired, Email,Length,Regexp
 import smtplib
+from dotenv import load_dotenv
+import os
 
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+load_dotenv()
+
+"""Refer to the .env.example to create your own '.env' file"""
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 bootstrap = Bootstrap5(app)
 
-email = "sofiaaa3991@gmail.com"
-password = "gtvv flfo vmrs gjtg"
+email = os.getenv('EMAIL')
+password = os.getenv('PASSWORD')
 
 
 
