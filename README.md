@@ -67,8 +67,12 @@ python main.py
 - **Team Portfolio:** [Portfolio🌐](https://your-team-portfolio.com)
 - **Team GitHub Repository:** [github](https://github.com/nextleaptech)
 - **Team LinkedIn:** [linkedin](https://linkedin.com/in/ourteam)
+
+---
+
 Feel free to reach out for collaboration, feedback, or any questions!
-[<img align="left" alt="GitHub" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />][github]
 [<img align="left" alt="LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[github]: https://github.com/nextleaptech
+[<img align="left" alt="GitHub" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />][github]  
+
 [linkedin]: https://linkedin.com/in/ourteam
+[github]: https://github.com/nextleaptech
