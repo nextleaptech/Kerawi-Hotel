@@ -65,8 +65,10 @@ python main.py
 
 - **Live Website:** [Hotel Site Live🌐](https://your-live-site-url.com)
 - **Team Portfolio:** [Portfolio🌐](https://your-team-portfolio.com)
-- **Team GitHub Repository:** [<img align="left" alt="GitHub" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />][github]
-- **Team LinkedIn:** [<img align="left" alt="LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
+- **Team GitHub Repository:** [github](https://github.com/nextleaptech)
+- **Team LinkedIn:** [linkedin](https://linkedin.com/in/ourteam)
+Feel free to reach out for collaboration, feedback, or any questions!
+[<img align="left" alt="GitHub" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />][github]
+[<img align="left" alt="LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
 [github]: https://github.com/nextleaptech
 [linkedin]: https://linkedin.com/in/ourteam
-Feel free to reach out for collaboration, feedback, or any questions!
