@@ -1,25 +1,30 @@
-from flask import Flask,render_template,redirect,url_for,request,flash
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField,TextAreaField,SelectField
-from wtforms.validators import DataRequired, Email,Length,Regexp
-import smtplib
+from wtforms import StringField, SubmitField, TextAreaField, SelectField
+from wtforms.validators import DataRequired, Email, Length, Regexp
+from flask_mail import Mail, Message
 from dotenv import load_dotenv
 import os
 
-
 app = Flask(__name__)
-
 load_dotenv()
 
 """Refer to the .env.example to create your own '.env' file"""
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 bootstrap = Bootstrap5(app)
 
+# Flask-Mail configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.getenv('EMAIL')
+app.config['MAIL_PASSWORD'] = os.getenv('PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('EMAIL')
+
+mail = Mail(app)
+
 email = os.getenv('EMAIL')
-password = os.getenv('PASSWORD')
-
-
 
 class ContactForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
@@ -44,7 +49,6 @@ class BookingForm(FlaskForm):
     special_request = TextAreaField("Special Request", validators=[Length(max=200)])
     submit = SubmitField("Book Now")
 
-
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -57,23 +61,22 @@ def menu():
 def about():
     return render_template("about.html")
 
-@app.route("/contact",methods=["GET","POST"])
+@app.route("/contact", methods=["GET","POST"])
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
         try:
-            with smtplib.SMTP("smtp.gmail.com",587) as connection:
-                connection.starttls()
-                connection.login(user=email,password=password)
-                connection.sendmail(from_addr=email,
-                                    to_addrs="sofi123man@gmail.com",
-                                    msg=f"Subject:Contact form submission\n\n"
-                                        f"From: {email}\n\nName:{form.name.data}\nEmail:{form.email.data}\nPhone:{form.phone.data}\nMessage:{form.message.data}")
-            return redirect(url_for("contact",msg_sent="1"))
+            msg = Message(
+                "Contact form submission",
+                recipients=["sofi123man@gmail.com"]
+            )
+            msg.body = f"From: {email}\n\nName: {form.name.data}\nEmail: {form.email.data}\nPhone:{form.phone.data}\nMessage:{form.message.data}"
+            mail.send(msg)
+            return redirect(url_for("contact", msg_sent="1"))
         except Exception:
-            return redirect(url_for("contact",msg_sent="2"))
+            return redirect(url_for("contact", msg_sent="2"))
     msg_sent = request.args.get("msg_sent")
-    return render_template("contact.html",form=form,msg_sent=msg_sent)
+    return render_template("contact.html", form=form, msg_sent=msg_sent)
 
 @app.route("/gallery")
 def gallery():
@@ -87,72 +90,38 @@ def service():
 def room():
     return render_template("room.html")
 
-@app.route("/booking",methods=["GET","POST"])
+@app.route("/booking", methods=["GET","POST"])
 def booking():
     form = BookingForm()
     if form.validate_on_submit():
         try:
-            with smtplib.SMTP("smtp.gmail.com",587) as connection:
-                connection.starttls()
-                connection.login(user=email, password=password)
-                connection.sendmail(from_addr=email,
-                                    to_addrs="sofi123man@gmail.com",
-                                    msg=f"Subject: New Booking\n\n"
-                                        f"Name: {form.name.data}\n"
-                                        f"Email: {form.email.data}\n"
-                                        f"Phone Number:{form.phone.data}\n"
-                                        f"Check In: {form.checkin.data}\n"
-                                        f"Check Out: {form.checkout.data}\n"
-                                        f"Adults: {form.adults.data}\n"
-                                        f"Children: {form.children.data}\n"
-                                        f"Room: {form.room.data}\n"
-                                        f"Special Request: {form.special_request.data}")
+            msg = Message(
+                "New Booking",
+                recipients=["sofi123man@gmail.com"]
+            )
+            msg.body = f"Name: {form.name.data}\nEmail: {form.email.data}\nPhone Number:{form.phone.data}\nCheck In: {form.checkin.data}\nCheck Out: {form.checkout.data}\nAdults: {form.adults.data}\nChildren: {form.children.data}\nRoom: {form.room.data}\nSpecial Request: {form.special_request.data}"
+            mail.send(msg)
             return redirect(url_for("booking", msg_sent="1"))
         except Exception:
             return redirect(url_for("booking", msg_sent="2"))
     msg_sent = request.args.get("msg_sent")
     return render_template("booking.html", form=form, msg_sent=msg_sent)
 
-
-@app.route("/newsletter",methods=["POST"])
+@app.route("/newsletter", methods=["POST"])
 def newsletter():
     if "newsletter_email" in request.form:
         referrer = request.referrer or url_for('home')
         try:
-            with smtplib.SMTP("smtp.gmail.com",587) as connection:
-                connection.starttls()
-                connection.login(user=email, password=password)
-                connection.sendmail(from_addr=email,
-                                    to_addrs="sofi123man@gmail.com",
-                                    msg=f"Subject:Newsletter subscription\n\n"
-                                        f"From: {email}\n\n{request.form['newsletter_email']} has subscribed to the newsletter.\n\n")
+            msg = Message(
+                "Newsletter subscription",
+                recipients=["sofi123man@gmail.com"]
+            )
+            msg.body = f"From: {email}\n\n{request.form['newsletter_email']} has subscribed to the newsletter."
+            mail.send(msg)
             return redirect(f"{referrer}?newsletter_success=1")
         except Exception:
             return redirect(f"{referrer}?newsletter_success=2")
     return redirect(request.referrer or url_for('home'))
 
-
-@app.route("/test_env_email")
-def test_env_email():
-    email_val = os.getenv("EMAIL")
-    password_val = os.getenv("PASSWORD")
-    
-    if not email_val or not password_val:
-        return "Email or password not loaded ❌"
-    
-    # Mask password except last 2 characters
-    masked_password = "*" * (len(password_val)-2) + password_val[-2:]
-    
-    return f"Email loaded: {email_val} ✅<br>Password loaded (masked): {masked_password} ✅"
-
-
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
-
-
