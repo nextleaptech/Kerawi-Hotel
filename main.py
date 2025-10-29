@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired, Email, Length, Regexp
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
 import os
+import traceback
 
 app = Flask(__name__)
 load_dotenv()
@@ -74,6 +75,7 @@ def contact():
             mail.send(msg)
             return redirect(url_for("contact", msg_sent="1"))
         except Exception:
+            print(traceback.format_exc())
             return redirect(url_for("contact", msg_sent="2"))
     msg_sent = request.args.get("msg_sent")
     return render_template("contact.html", form=form, msg_sent=msg_sent)
