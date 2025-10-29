@@ -29,7 +29,7 @@ A **modern, fully responsive hotel website** built by a **4-member development t
 Clone the repo, set up a virtual environment, install dependencies, and run the app:
 
 ```bash
-git clone https://github.com/nextleaptech/Kerawi-Hotel
+git clone https://github.com/merkebtech/Kerawi-Hotel
 cd Hotel-Site
 python -m venv .venv
 pip install -r requirements.txt
@@ -65,7 +65,7 @@ python main.py
 
 - **Live Website:** [Hotel Site Live🌐](https://your-live-site-url.com)
 - **Team Portfolio:** [Portfolio🌐](https://your-team-portfolio.com)
-- **Team GitHub Repository:** [github](https://github.com/nextleaptech)
+- **Team GitHub Repository:** [github](https://github.com/merkebtech)
 - **Team LinkedIn:** [linkedin](https://linkedin.com/in/ourteam)
 
 ---
@@ -75,4 +75,4 @@ Feel free to reach out for collaboration, feedback, or any questions!
 [<img align="left" alt="GitHub" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />][github]  
 
 [linkedin]: https://linkedin.com/in/ourteam
-[github]: https://github.com/nextleaptech
+[github]: https://github.com/merkebtech

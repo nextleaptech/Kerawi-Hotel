@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head.html' %}
+<body>
+
+ 
+        <!-- Header Start -->
+        {% include 'header.html' %}
+        <!-- Header End -->
+
+
+        <!-- Page Header Start -->
+
+    <!-- Menu Section Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">Our Menu</h6>
+                <h1 class="mb-5">Delicious <span class="text-primary text-uppercase">Foods & Drinks</span></h1>
+            </div>
+            
+            <!-- Category Selection Buttons -->
+            <div class="text-center mb-5">
+                <button class="btn btn-primary me-3 active" id="foodsBtn" onclick="showCategory('foods')">🍽️ Foods</button>
+                <button class="btn btn-outline-primary" id="drinksBtn" onclick="showCategory('drinks')">🥤 Drinks</button>
+            </div>
+
+            <!-- Foods Section -->
+            <div id="foodsSection" class="category-section">
+                <div class="row justify-content-center">
+                    <div class="col-12" style="width: 90%;">
+                        <div class="d-flex flex-wrap justify-content-center gap-5">
+                           
+                           
+                          
+                            <div class="food-item wow fadeInUp" data-wow-delay="0.5s" onclick="showItemDetail('food5')">
+                                <div class="d-flex align-items-center p-5 border rounded food-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/food/shiro.jpg') }}" alt="Shiro" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Shiro</h4>
+                                        <p class="mb-3 text-muted fs-5">Creamy chickpea stew with spices</p>
+                                        <span class="text-primary fw-bold fs-4">$4.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="food-item wow fadeInUp" data-wow-delay="0.6s" onclick="showItemDetail('food6')">
+                                <div class="d-flex align-items-center p-5 border rounded food-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/food/Tibs.jpg') }}" alt="Tibs" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Tibs</h4>
+                                        <p class="mb-3 text-muted fs-5">Tender sautéed meat with spices</p>
+                                        <span class="text-primary fw-bold fs-4">$8.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="food-item wow fadeInUp" data-wow-delay="0.7s" onclick="showItemDetail('food7')">
+                                <div class="d-flex align-items-center p-5 border rounded food-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/food/Tiresga.jpg') }}" alt="Tire Siga" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Tire Siga</h4>
+                                        <p class="mb-3 text-muted fs-5">Raw beef with spicy sauces</p>
+                                        <span class="text-primary fw-bold fs-4">$15.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="food-item wow fadeInUp" data-wow-delay="0.8s" onclick="showItemDetail('food8')">
+                                <div class="d-flex align-items-center p-5 border rounded food-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/food/beyaynet.jpg') }}" alt="Beyaynetu" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Beyaynetu</h4>
+                                        <p class="mb-3 text-muted fs-5">Colorful vegan platter</p>
+                                        <span class="text-primary fw-bold fs-4">$6.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drinks Section -->
+            <div id="drinksSection" class="category-section" style="display: none;">
+                <div class="row justify-content-center">
+                    <div class="col-12" style="width: 90%;">
+                        <div class="d-flex flex-wrap justify-content-center gap-5">
+                            <div class="drink-item wow fadeInUp" data-wow-delay="0.1s" onclick="showItemDetail('drink1')">
+                                <div class="d-flex align-items-center p-5 border rounded drink-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/Drinks/whiskey.jpg') }}" alt="Whiskey" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Whiskey</h4>
+                                        <p class="mb-3 text-muted fs-5">Bourbon, Scotch, Ethio Whiskey</p>
+                                        <span class="text-primary fw-bold fs-4">$9.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="drink-item wow fadeInUp" data-wow-delay="0.2s" onclick="showItemDetail('drink2')">
+                                <div class="d-flex align-items-center p-5 border rounded drink-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/Drinks/wine.jpg') }}" alt="Wine" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Wine</h4>
+                                        <p class="mb-3 text-muted fs-5">Red, White, Rose</p>
+                                        <span class="text-primary fw-bold fs-4">$12.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="drink-item wow fadeInUp" data-wow-delay="0.3s" onclick="showItemDetail('drink3')">
+                                <div class="d-flex align-items-center p-5 border rounded drink-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/Drinks/cocktail.jpg') }}" alt="Cocktail" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Cocktail</h4>
+                                        <p class="mb-3 text-muted fs-5">Mojito, Margarita, Old Fashioned</p>
+                                        <span class="text-primary fw-bold fs-4">$15.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="drink-item wow fadeInUp" data-wow-delay="0.4s" onclick="showItemDetail('drink4')">
+                                <div class="d-flex align-items-center p-5 border rounded drink-card" style="cursor: pointer; transition: all 0.3s; min-width: 450px;">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ url_for('static', filename='assets/img/Drinks/bira.jpg') }}" alt="Beer" class="img-fluid rounded" style="width: 180px; height: 180px; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-grow-1 ms-5">
+                                        <h4 class="mb-3 fw-bold">Beer</h4>
+                                        <p class="mb-3 text-muted fs-5">Lager, Ale, Stout</p>
+                                        <span class="text-primary fw-bold fs-4">$5.99</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item Detail Modal -->
+            <div class="modal fade" id="itemDetailModal" tabindex="-1" aria-labelledby="itemDetailModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="itemDetailModalLabel">Item Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img id="detailImage" src="" alt="Item Image" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 id="detailTitle" class="text-primary mb-3"></h3>
+                                    <p id="detailDescription" class="mb-3"></p>
+                                    <p id="detailIngredients" class="mb-3"></p>
+                                    <h4 id="detailPrice" class="text-primary mb-3"></h4>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Menu Section End -->
+
+    <!-- Footer Start -->
+    {% include 'footer.html' %}
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='lib/wow/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/tempusdominus/js/moment.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+
+<!-- Template Javascript -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<!-- Custom JavaScript for Menu Functionality -->
+<script>
+    // Menu items data
+    const menuItems = {
+        food1: {
+            title: "Grilled Salmon",
+            description: "Fresh Atlantic salmon grilled to perfection with a blend of herbs and spices.",
+            ingredients: "Ingredients: Atlantic salmon, fresh herbs, olive oil, lemon, salt, pepper",
+            price: "$25.99",
+            image: "{{ url_for('static', filename='assets/img/room/rooms-1.jpg') }}"
+        },
+        food2: {
+            title: "Beef Steak",
+            description: "Premium ribeye steak cooked to your preference with garlic butter and herbs.",
+            ingredients: "Ingredients: Ribeye steak, garlic butter, rosemary, thyme, salt, pepper",
+            price: "$32.99",
+            image: "{{ url_for('static', filename='assets/img/room/rooms-2.jpg') }}"
+        },
+        food3: {
+            title: "Chicken Pasta",
+            description: "Creamy pasta with tender grilled chicken breast and fresh vegetables.",
+            ingredients: "Ingredients: Pasta, chicken breast, cream, mushrooms, parmesan cheese",
+            price: "$18.99",
+            image: "{{ url_for('static', filename='assets/img/room/rooms-3.jpg') }}"
+        },
+        food4: {
+            title: "Caesar Salad",
+            description: "Fresh romaine lettuce with homemade caesar dressing and parmesan cheese.",
+            ingredients: "Ingredients: Romaine lettuce, caesar dressing, parmesan cheese, croutons",
+            price: "$14.99",
+            image: "{{ url_for('static', filename='assets/img/room/rooms-4.jpg') }}"
+        },
+        food5: {
+            title: "Shiro",
+            description: "A creamy, flavorful chickpea stew simmered with spices and herbs. Served with injera for a comforting, rich taste.",
+            ingredients: "Ingredients: Ground chickpeas, onion, garlic, berbere, oil, salt",
+            price: "$4.99",
+            image: "{{ url_for('static', filename='assets/img/food/shiro.jpg') }}"
+        },
+        food6: {
+            title: "Tibs",
+            description: "Tender sautéed meat (usually beef or lamb) cooked with onions, peppers, and spices. Served hot with injera.",
+            ingredients: "Ingredients: Beef or lamb, onion, green chili, tomato, garlic, oil, and spices",
+            price: "$8.99",
+            image: "{{ url_for('static', filename='assets/img/food/Tibs.jpg') }}"
+        },
+        food7: {
+            title: "Tire Siga",
+            description: "Raw beef delicacy served with spicy mitmita and awaze sauce — a bold traditional dish enjoyed by meat lovers.",
+            ingredients: "Ingredients: Fresh raw beef, mitmita, awaze, salt",
+            price: "$15.99",
+            image: "{{ url_for('static', filename='assets/img/food/Tiresga.jpg') }}"
+        },
+        food8: {
+            title: "Beyaynetu",
+            description: "A colorful vegan platter featuring various lentil stews, vegetable mixes, and greens served on injera. Perfect for sharing.",
+            ingredients: "Ingredients: Lentils, split peas, cabbage, carrots, beets, collard greens, and spices",
+            price: "$6.99",
+            image: "{{ url_for('static', filename='assets/img/food/beyaynet.jpg') }}"
+        },
+        drink1: {
+            title: "Whiskey",
+            description: "Premium whiskey selection including Bourbon, Scotch, and Ethiopian varieties.",
+            ingredients: "Ingredients: Premium whiskey, served neat or on the rocks",
+            price: "$9.99",
+            image: "{{ url_for('static', filename='assets/img/Drinks/whiskey.jpg') }}"
+        },
+        drink2: {
+            title: "Wine",
+            description: "Carefully selected wines from our cellar. Available in red, white, or rose varieties.",
+            ingredients: "Ingredients: Premium wine selection, served at perfect temperature",
+            price: "$12.99",
+            image: "{{ url_for('static', filename='assets/img/Drinks/wine.jpg') }}"
+        },
+        drink3: {
+            title: "Cocktail",
+            description: "Expertly crafted cocktails including Mojito, Margarita, and Old Fashioned.",
+            ingredients: "Ingredients: Premium spirits, fresh ingredients, garnishes",
+            price: "$15.99",
+            image: "{{ url_for('static', filename='assets/img/Drinks/cocktail.jpg') }}"
+        },
+        drink4: {
+            title: "Beer",
+            description: "Fresh beer selection including Lager, Ale, and Stout varieties.",
+            ingredients: "Ingredients: Premium beer, served cold",
+            price: "$5.99",
+            image: "{{ url_for('static', filename='assets/img/Drinks/bira.jpg') }}"
+        }
+    };
+
+    // Function to show category (foods or drinks)
+    function showCategory(category) {
+        // Hide all sections
+        document.getElementById('foodsSection').style.display = 'none';
+        document.getElementById('drinksSection').style.display = 'none';
+        
+        // Remove active class from buttons
+        document.getElementById('foodsBtn').classList.remove('active', 'btn-primary');
+        document.getElementById('foodsBtn').classList.add('btn-outline-primary');
+        document.getElementById('drinksBtn').classList.remove('active', 'btn-primary');
+        document.getElementById('drinksBtn').classList.add('btn-outline-primary');
+        
+        // Show selected section and update button
+        if (category === 'foods') {
+            document.getElementById('foodsSection').style.display = 'block';
+            document.getElementById('foodsBtn').classList.add('active', 'btn-primary');
+            document.getElementById('foodsBtn').classList.remove('btn-outline-primary');
+        } else {
+            document.getElementById('drinksSection').style.display = 'block';
+            document.getElementById('drinksBtn').classList.add('active', 'btn-primary');
+            document.getElementById('drinksBtn').classList.remove('btn-outline-primary');
+        }
+    }
+
+    // Function to show item details in modal
+    function showItemDetail(itemId) {
+        const item = menuItems[itemId];
+        if (item) {
+            // Update modal content
+            document.getElementById('detailImage').src = item.image;
+            document.getElementById('detailTitle').textContent = item.title;
+            document.getElementById('detailDescription').textContent = item.description;
+            document.getElementById('detailIngredients').textContent = item.ingredients;
+            document.getElementById('detailPrice').textContent = item.price;
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('itemDetailModal'));
+            modal.show();
+        }
+    }
+
+    // Add hover effects to cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.food-card, .drink-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+    });
+</script>

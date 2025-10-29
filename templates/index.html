@@ -94,7 +94,9 @@
                                     <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>1 Bath</small>
                                     <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">Comfortable and well-furnished, perfect for a relaxing stay.
+                                    Includes essential amenities with a cozy atmosphere.
+                                   </p>
                                 <div class="d-flex justify-content-between">
                                   
                                 </div>
@@ -123,7 +125,9 @@
                                     <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>1 Bath</small>
                                     <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">Spacious and elegantly styled for extra comfort.
+                                    Features upgraded amenities, a sitting area, and city or garden views.
+                                  </p>
                                 <div class="d-flex justify-content-between">
                                     
                                 </div>
@@ -152,7 +156,9 @@
                                     <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>1 Bath</small>
                                     <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                                 </div>
-                                <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                                <p class="text-body mb-3">Luxurious and refined, offering top-tier comfort and style.
+                                    Includes premium bedding, and beautiful lake or city views.
+                                  </p>
                                 <div class="d-flex justify-content-between">
                                    
                                 </div>
@@ -193,10 +199,10 @@
                             <h3>We Serve Fresh and
                                 <span  style="color: #FFAC1C; font-size: 36px; font-weight: bold;">Delicious Food</span> </h3>
                         </div>
-                        <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.8s">Suscipit libero pretium nullam potenti. Interdum, blandit phasellus consectetuer dolor ornare
-                            dapibus enim ut tincidunt rhoncus tellus sollicitudin pede nam maecenas, dolor sem. Neque
-                            sollicitudin enim. Dapibus lorem feugiat facilisi faucibus et. Rhoncus.</p>
-                        <a href="#" class="btn btn-outline-warning wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s" style="color: black; border-width: 3px;">Learn More</a>
+                        <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.8s">Enjoy a wide selection of freshly prepared dishes made with the finest local ingredients.
+                            From traditional Ethiopian flavors to international favorites, every meal is crafted with care and passion.
+                            Taste the perfect blend of freshness, flavor, and hospitality in every bite.</p>
+                        <a href="{{ url_for('menu')}}" class="btn btn-outline-warning wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s" style="color: black; border-width: 3px;">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -214,7 +220,7 @@
                 <div class="col-lg-12">
                     <div class="video-text wow fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.1s">
                         <h2 class="wow fadeInDown" data-wow-duration="0.5s" data-wow-delay="0.2s">Discover Our Hotel & Services.</h2>
-                        <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">It S Hurricane Season But We Are Visiting Hilton Head Island</p>
+                        <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">Where modern comfort meets genuine care</p>
             <a href="https://www.youtube.com/watch?v=5m0Y7c_1xlc" class="play-btn video-popup wow zoomIn" data-wow-duration="0.6s" data-wow-delay="0.4s"><img
                 src="{{ url_for('static', filename='assets/img/play.png') }}" alt=""></a>
                     </div>
@@ -234,9 +240,9 @@
                 <div class="col-lg-6">
                     <div class="gallery-text">
                         <h2 class="wow fadeInLeft" data-wow-delay="0.6s" data-wow-duration="0.8s"> Hotel <span style="color: #FFAC1C;"> Gallery</span></h2>
-                        <p class=" wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="0.8s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus libero mauris, bibendum eget
-                            sapien ac, ultrices rhoncus ipsum. Donec nec sapien in urna fermentum ornare. Morbi vel
-                            ultrices leo. Sed eu turpis eu arcu vehicula fringilla ut vitae orci.</p>
+                        <p class=" wow fadeInLeft" data-wow-delay="0.7s" data-wow-duration="0.8s">Step inside and explore the beauty of our hotel through stunning visuals.
+                            From elegant rooms to relaxing outdoor spaces, every corner tells a story of comfort.
+                            Experience the warmth and style that make every stay unforgettable.</p>
                         <a href="{{ url_for('gallery') }}" class="btn btn-primary  py-md-3 px-md-5  wow fadeInUp " data-wow-delay="0.8s" data-wow-duration="0.8s">View Gallery </a>
                     </div>
                 </div>
@@ -280,7 +286,12 @@
             <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="wow fadeInLeft" data-wow-delay="0.8s" data-wow-duration="0.8s">Follow us on Instagram @yourhotel</h2>
+                    <h2 class="wow fadeInLeft" data-wow-delay="0.8s" data-wow-duration="0.8s">Follow us on Instagram 
+                       <a href="{{ url_for('home') }}"> <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle; margin: 0 8px;">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg></a>
+                     
+                    </h2>
                     </div>
                                 </div>
                             </div>
@@ -320,10 +331,10 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="testimonial-slider owl-carousel">
                         <div class="ts-item">
-                            <p>After a construction project took longer than expected, my husband, my daughter and I
-                                needed a place to stay for a few nights. As a Chicago resident, we know a lot about our
-                                city, neighborhood and the types of housing options available and absolutely love our
-                                vacation at Sona Hotel.</p>
+                            <p>My stay at Kerawi Hotel was truly exceptional. The staff were warm, welcoming, and always ready to help.
+                                The rooms were spotless, comfortable, and beautifully designed with a great view of Hawassa.
+                                The food was fresh and full of flavor — every meal felt special.
+                                I loved how peaceful and relaxing the atmosphere was throughout my stay.</p>
                             <div class="ti-author">
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -332,15 +343,14 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-half"></i>
                                 </div>
-                                <h5> - Alexander Vasquez</h5>
+                                <h5> - Mr Alex joe</h5>
                             </div>
-                            <img src="{{ url_for('static', filename='assets/img/testimonial-1.jpg') }}" alt="">
-                        </div>
+                             </div>
                         <div class="ts-item">
-                            <p>After a construction project took longer than expected, my husband, my daughter and I
-                                needed a place to stay for a few nights. As a Chicago resident, we know a lot about our
-                                city, neighborhood and the types of housing options available and absolutely love our
-                                vacation at Sona Hotel.</p>
+                            <p>Kerawi Hotel exceeded all my expectations. The service was professional and genuinely friendly from the moment I arrived.
+                                The rooms were spacious, modern, and perfectly maintained.
+                                I especially enjoyed the delicious breakfast and the calm lake view in the morning.
+                                Everything about the hotel felt thoughtful and well-organized</p>
                             <div class="ti-author">
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -349,10 +359,9 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-half"></i>
                                 </div>
-                                <h5> - Alexander Vasquez</h5>
+                                <h5> - Dr Mekuriya Alemu</h5>
                             </div>
-                            <img src="{{ url_for('static', filename='assets/img/testimonial-2.jpg') }}" alt="">
-                        </div>
+                              </div>
                     </div>
                 </div>
             </div>
