@@ -1,7 +1,7 @@
 from flask import Flask,render_template,redirect,url_for,request,flash
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField,TextAreaField,SelectField
+from wtforms import StringField, SubmitField,TextAreaField,SelectField,DateField
 from wtforms.validators import DataRequired, Email,Length,Regexp
 import smtplib
 from dotenv import load_dotenv
@@ -36,8 +36,8 @@ class BookingForm(FlaskForm):
         Length(min=10, max=15),
         Regexp(r'^\+?\d+$', message="Enter a valid phone number")
     ])
-    checkin = StringField("Check In", validators=[DataRequired()])
-    checkout = StringField("Check Out", validators=[DataRequired()])
+    checkin = DateField("Check In", validators=[DataRequired()])
+    checkout = DateField("Check Out", validators=[DataRequired()])
     adults = SelectField("Adults", choices=[("1", "1"), ("2", "2"), ("3", "3")], validators=[DataRequired()])
     children = SelectField("Children", choices=[("0", "0"), ("1", "1"), ("2", "2")])
     room = SelectField("Room", choices=[("1", "Room 1"), ("2", "Room 2"), ("3", "Room 3")], validators=[DataRequired()])
@@ -62,7 +62,7 @@ def contact():
     form = ContactForm()
     if form.validate_on_submit():
         try:
-            with smtplib.SMTP("smtp.gmail.com") as connection:
+            with smtplib.SMTP("smtp.gmail.com",587) as connection:
                 connection.starttls()
                 connection.login(user=email,password=password)
                 connection.sendmail(from_addr=email,
@@ -92,7 +92,7 @@ def booking():
     form = BookingForm()
     if form.validate_on_submit():
         try:
-            with smtplib.SMTP("smtp.gmail.com") as connection:
+            with smtplib.SMTP("smtp.gmail.com",587) as connection:
                 connection.starttls()
                 connection.login(user=email, password=password)
                 connection.sendmail(from_addr=email,
@@ -119,13 +119,13 @@ def newsletter():
     if "newsletter_email" in request.form:
         referrer = request.referrer or url_for('home')
         try:
-            with smtplib.SMTP("smtp.gmail.com") as connection:
+            with smtplib.SMTP("smtp.gmail.com",587) as connection:
                 connection.starttls()
                 connection.login(user=email, password=password)
                 connection.sendmail(from_addr=email,
                                     to_addrs="sofi123man@gmail.com",
                                     msg=f"Subject:Newsletter subscription\n\n"
-                                        f"From: {email}\n\n{request.form["newsletter_email"]} has subscribed to the newsletter.\n\n")
+                                        f"From: {email}\n\n{request.form['newsletter_email']} has subscribed to the newsletter.\n\n")
             return redirect(f"{referrer}?newsletter_success=1")
         except Exception:
             return redirect(f"{referrer}?newsletter_success=2")
