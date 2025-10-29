@@ -1,7 +1,7 @@
 from flask import Flask,render_template,redirect,url_for,request,flash
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField,TextAreaField,SelectField,DateField
+from wtforms import StringField, SubmitField,TextAreaField,SelectField
 from wtforms.validators import DataRequired, Email,Length,Regexp
 import smtplib
 from dotenv import load_dotenv
@@ -36,8 +36,8 @@ class BookingForm(FlaskForm):
         Length(min=10, max=15),
         Regexp(r'^\+?\d+$', message="Enter a valid phone number")
     ])
-    checkin = DateField("Check In", validators=[DataRequired()])
-    checkout = DateField("Check Out", validators=[DataRequired()])
+    checkin = StringField("Check In", validators=[DataRequired()])
+    checkout = StringField("Check Out", validators=[DataRequired()])
     adults = SelectField("Adults", choices=[("1", "1"), ("2", "2"), ("3", "3")], validators=[DataRequired()])
     children = SelectField("Children", choices=[("0", "0"), ("1", "1"), ("2", "2")])
     room = SelectField("Room", choices=[("1", "Room 1"), ("2", "Room 2"), ("3", "Room 3")], validators=[DataRequired()])
@@ -130,6 +130,20 @@ def newsletter():
         except Exception:
             return redirect(f"{referrer}?newsletter_success=2")
     return redirect(request.referrer or url_for('home'))
+
+
+@app.route("/test_env_email")
+def test_env_email():
+    email_val = os.getenv("EMAIL")
+    password_val = os.getenv("PASSWORD")
+    
+    if not email_val or not password_val:
+        return "Email or password not loaded ❌"
+    
+    # Mask password except last 2 characters
+    masked_password = "*" * (len(password_val)-2) + password_val[-2:]
+    
+    return f"Email loaded: {email_val} ✅<br>Password loaded (masked): {masked_password} ✅"
 
 
 
